@@ -46,7 +46,10 @@ module Plugin(R : RPC) = struct
 
   let query_result = Param.mk query_result
 
-  let query = declare "query"
+  (* We have to call this Plugin.Query to keep backward-compatibility with the
+     old PVS scripts that used Plugin.Query as the filename for the
+     corresponding script *)
+  let query = declare "Query"
       ["Query this implementation and return its properties. This is ";
        "called by xapi to determine whether it is compatible with xapi ";
        "and to discover the supported features."]
